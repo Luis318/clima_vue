@@ -8,6 +8,8 @@ import Alerta from './Alerta.vue';
     })
     const error = ref('')
 
+    const emit = defineEmits(['obtener-clima'])
+
     const paises = [
         { codigo: 'US', nombre: 'Estados Unidos' },
         { codigo: 'MX', nombre: 'México' },
@@ -26,6 +28,7 @@ import Alerta from './Alerta.vue';
         }
         
         error.value = ''
+        emit('obtener-clima', busqueda)
     }
 </script>
 
