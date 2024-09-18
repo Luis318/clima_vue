@@ -1,9 +1,10 @@
 <script setup>
   import Formulario from './components/Formulario.vue';
   import Clima from './components/Clima.vue';
+  import Spiner from './components/Spiner.vue';
   import useClima from './composable/useClima';
 
-  const { obtenerClima, clima, mostrarClima } = useClima()
+  const { obtenerClima, clima, cargando, mostrarClima } = useClima()
 
   
 
@@ -16,6 +17,11 @@
     <Formulario
       @obtener-clima = "obtenerClima"
     />
+
+    <Spiner
+      v-if="cargando"
+    />
+
     <Clima
       v-if="mostrarClima"
       :clima="clima"
